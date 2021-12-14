@@ -94,7 +94,8 @@ The sample output for the sample input file above should look like this:
 
 
 
-Apply best software design and development practices and document your approach, in particlar regarding the algorithms and data structures you chose. Don't forget to put comments into your source files.
+Apply the best software design and development practices and document your 
+approach, in particular regarding the algorithms and data structures you chose. Don't forget to put comments into your source files.
 
 
 

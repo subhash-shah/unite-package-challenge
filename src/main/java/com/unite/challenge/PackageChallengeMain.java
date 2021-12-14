@@ -4,7 +4,7 @@ import com.unite.challenge.service.PackageService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class PackageChallangeMain {
+public class PackageChallengeMain {
 
     public static void main(String[] args) {
         if (args.length < 1) {
