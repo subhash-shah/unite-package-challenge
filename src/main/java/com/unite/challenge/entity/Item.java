@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
+/**
+ * Entity class for individual Item in Package
+ */
 @ToString
 @AllArgsConstructor
 public class Item {
