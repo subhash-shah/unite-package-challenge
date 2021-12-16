@@ -1,34 +1,21 @@
 package com.unite.challenge.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.ToString;
-import org.apache.commons.lang3.StringUtils;
+import lombok.*;
 
 /**
  * Entity class for individual Item in Package
  */
 @ToString
 @AllArgsConstructor
+@NoArgsConstructor
 public class Item {
     @Getter
+    @Setter
     private int index;
     @Getter
+    @Setter
     private Double weight;
     @Getter
+    @Setter
     private Double cost;
-
-    public Item(String[] itemValues) {
-        if (StringUtils.isNotBlank(itemValues[0])) {
-            this.index = Integer.parseInt(itemValues[0]);
-        }
-
-        if (StringUtils.isNotBlank(itemValues[1])) {
-            this.weight = Double.parseDouble(itemValues[1]);
-        }
-
-        if (StringUtils.isNotBlank(itemValues[2])) {
-            this.cost = Double.parseDouble(itemValues[2].split("€")[1]);
-        }
-    }
 }

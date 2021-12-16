@@ -11,4 +11,7 @@ public interface Constants {
     Double MAX_ITEM_COST = 100.0;
 
     String PROPERTIES_FILE_NAME = "messages.properties";
+
+    String CURRENCY_SYMBOL = "€";
+    String ITEM_VALUES_SEPARATOR = ",";
 }

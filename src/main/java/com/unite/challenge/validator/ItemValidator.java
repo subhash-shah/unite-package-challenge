@@ -58,7 +58,7 @@ public class ItemValidator {
      * @param item Item object
      */
     private void validateItemWeight(Item item) {
-        if (isWeightInRange(item)) {
+        if (!isWeightInRange(item)) {
             errors.add(
                     MessageFormat.format(
                             messages.getProperty("item.validation.weight.invalid"),
@@ -87,7 +87,7 @@ public class ItemValidator {
      * @return true if item weight is between range
      */
     private boolean isWeightInRange(Item item) {
-        return item.getWeight() < Constants.MIN_ITEM_WEIGHT
-                || item.getWeight() > Constants.MAX_ITEM_WEIGHT;
+        return item.getWeight() >= Constants.MIN_ITEM_WEIGHT
+                && item.getWeight() <= Constants.MAX_ITEM_WEIGHT;
     }
 }

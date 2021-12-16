@@ -2,8 +2,10 @@ package com.unite.challenge.service;
 
 import com.unite.challenge.comparator.ItemCostDescComparator;
 import com.unite.challenge.converter.PackageConverter;
+import com.unite.challenge.entity.EmptyPackage;
 import com.unite.challenge.entity.Item;
 import com.unite.challenge.entity.Package;
+import com.unite.challenge.entity.dto.PackageProcessingResult;
 import com.unite.challenge.exception.CustomAppException;
 import com.unite.challenge.processor.FileReader;
 import com.unite.challenge.util.Constants;
@@ -51,8 +53,8 @@ public class PackageService {
                 loadProperties(Constants.PROPERTIES_FILE_NAME)
         );
         if (packageValidator.isValid(aPackage)) {
-            final List<Integer> result = processPackage(aPackage);
-            log.info(result.isEmpty() ? "-" : result.toString());
+            final PackageProcessingResult result = processPackage(aPackage);
+            log.info(result.toString());
         } else {
             log.error(packageValidator.getPackageError().toString());
         }
@@ -70,9 +72,9 @@ public class PackageService {
      * </pre>
      *
      * @param aPackage Package to be processed
-     * @return list of item indexes as a result, empty otherwise
+     * @return PackageProcessingResult object contains item indexes and Package instance
      */
-    public List<Integer> processPackage(Package aPackage) {
+    protected PackageProcessingResult processPackage(Package aPackage) {
         List<Item> packageItems = aPackage.getItems();
         packageItems.sort(new ItemCostDescComparator());
         double balanceWeight = aPackage.getWeight();
@@ -87,7 +89,7 @@ public class PackageService {
             }
             currentIndex++;
         }
-        return result;
+        return new PackageProcessingResult(aPackage, result);
     }
 
     /**
