@@ -101,7 +101,29 @@ approach, in particular regarding the algorithms and data structures you chose. 
 
 Good luck!
 
-
+## Solution
+This is a classic example of Knapsack algorithm.
+The end to end approach is
+1. Read input file
+2. Validate input file to check
+   1. File exists
+   2. File is a plain text file
+   3. File is not empty
+3. Parse input file and convert to Package objects
+4. Validate Package objects
+   1. Validate package for weight
+   2. Validate package for number of items
+   3. Validate package for item weight
+   4. Validate package for item cost
+5. Process by application of knapsack algorithm
+   1. Sort all items in a package in desc order of cost
+   2. Store maximum allowed package weight as balance weight
+   3. If item weight < balance weight, deduct item weight from balance weight 
+      and add the index to result
+   4. If the current item is not the last one in the sorted list of items 
+      and it has the same cost as the next item in the sorted list then 
+      consider the item with lesser weight
+   5. Done when all items are processed
 
 
 
